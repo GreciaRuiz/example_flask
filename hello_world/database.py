@@ -7,7 +7,7 @@ class DatabaseConnection:
 				host= '127.0.0.1',
 				user= 'root',
 				port= '3306',
-				password= ,
+				password= '',
 				database= 'sakila'
 			)
 		return cls._connection

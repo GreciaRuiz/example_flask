@@ -63,4 +63,11 @@ def init_app():
 		DatabaseConnection.execute_query (query, params)
 		return {"msg": "Actor creado con éxito"}, 201
 
+	@app.route('/actors/<int:actor_id>', methods= ['PUT'])
+	def update_actor(actor_id):
+		query= "UPDATE sakila.actor SET last_update=%s where actor.actor_id= %s;"
+		params= request.args.get('last_update',''), actor_id
+		DatabaseConnection.execute_query (query, params)
+		return {"msg": "Datos del actor actualizados con éxito."}, 200
+
 	return app
